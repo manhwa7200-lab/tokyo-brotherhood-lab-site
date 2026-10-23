@@ -4,28 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#090b14">
-  <meta name="description" content="Explore What's Next, an independent project for anime and manga fans by Tokyo Brotherhood Lab.">
+  <meta name="description" content="What's Next project information, features, and Android APK downloads from the official releases.">
   <title>What's Next — Tokyo Brotherhood Lab</title>
   <link rel="icon" href="../assets/images/whats-next.png" type="image/png">
   <link rel="stylesheet" href="../assets/css/style.css">
   <script src="../assets/js/main.js" defer></script>
   <style>
-    .project-hero{padding:38px 0 62px;display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,.78fr);gap:38px;align-items:center}
+    .project-hero{padding:34px 0 48px;display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,.7fr);gap:34px;align-items:center}
     .project-copy{min-width:0}
-    .back-link{display:inline-flex;gap:8px;color:var(--blue);font-weight:650;margin-bottom:26px}
-    .project-hero h1{font-size:clamp(2.7rem,6vw,4.6rem);letter-spacing:-2px;margin:20px 0 16px}
-    .project-lead{max-width:650px;font-size:1.06rem;color:var(--muted)}
-    .project-logo{display:block;width:100%;height:auto;border-radius:22px;border:1px solid var(--border);box-shadow:0 18px 60px #6f52ff18}
+    .back-link{display:inline-flex;gap:8px;color:var(--blue);font-weight:650;margin-bottom:24px}
+    .project-hero h1{font-size:clamp(2.7rem,6vw,4.5rem);letter-spacing:-2px;margin:20px 0 16px}
+    .project-lead{max-width:680px;font-size:1.06rem;color:var(--muted);line-height:1.8}
+    .project-logo-frame{display:grid;place-items:center;min-height:270px;padding:26px;border:1px solid var(--border);border-radius:22px;background:linear-gradient(145deg,#151b2b,#101522)}
+    .project-logo{display:block;width:100%;max-width:300px;max-height:300px;object-fit:contain;border-radius:14px}
     .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}
-    .tag{padding:6px 11px;border:1px solid var(--border);border-radius:999px;background:#a18aff0d;color:#c7b7ff;font-size:.8rem}
-    .detail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-    .detail-card{padding:22px;border:1px solid var(--border);border-radius:18px;background:linear-gradient(145deg,#171d32,#0e1221)}
-    .detail-card h3{margin:9px 0}
-    .detail-card p{margin:0;color:var(--muted);font-size:.93rem}
-    .section-intro{max-width:720px;margin:0 auto 28px;text-align:center}
-    .section-intro p{color:var(--muted)}
-    .notice{padding:18px;border:1px solid #9278ff40;border-radius:16px;background:#17152b;color:var(--muted);margin-top:24px}
-    @media(max-width:760px){.project-hero{grid-template-columns:1fr;gap:25px;padding:30px 0 48px}.project-logo{max-width:520px;margin:auto}.detail-grid{grid-template-columns:1fr}.project-hero h1{letter-spacing:-1.5px}}
+    .tag{padding:6px 11px;border:1px solid var(--border);border-radius:999px;background:#a18aff0b;color:#c7b7ff;font-size:.8rem}
+    .section-intro{max-width:760px;margin:0 auto 28px;text-align:center}
+    .section-intro p{color:var(--muted);line-height:1.75}
+    .info-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:18px}
+    .info-card{padding:24px;border:1px solid var(--border);border-radius:18px;background:var(--panel);min-width:0}
+    .info-card h3{margin:9px 0 18px}
+    .feature-list{padding-left:20px;margin:0;color:var(--muted);line-height:1.75}
+    .feature-list li+li{margin-top:10px}
+    .feature-list strong{color:var(--text)}
+    .info-list{margin:0}
+    .info-list>div{display:grid;grid-template-columns:112px minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}
+    .info-list>div:last-child{border-bottom:0}
+    .info-list dt{color:var(--muted);font-size:.9rem}
+    .info-list dd{margin:0;font-weight:600;font-size:.93rem;overflow-wrap:anywhere}
+    .inline-link{color:var(--blue);text-decoration:none}
+    .inline-link:hover{text-decoration:underline}
+    .notice{padding:18px;border:1px solid #9278ff40;border-radius:16px;background:#171825;color:var(--muted);margin-top:20px;line-height:1.7}
+    .notice strong{color:var(--text)}
+    .notice code{color:#d7cfff;overflow-wrap:anywhere}
+    .release-promo{display:flex;justify-content:space-between;align-items:center;gap:28px;padding:clamp(24px,4vw,42px);border:1px solid var(--border);border-radius:22px;background:var(--panel)}
+    .release-promo>div:first-child{max-width:760px}
+    .release-promo h2{margin:12px 0}
+    .release-promo p{color:var(--muted);line-height:1.75}
+    .release-promo-mark{flex:0 0 130px;width:130px;height:130px;display:grid;place-items:center;border:1px solid #8c7cff55;border-radius:24px;color:#c7b7ff;font-size:2rem;font-weight:800;background:#a18aff0c}
+    .release-promo-mark span{font-size:1.5rem;margin-left:6px;color:var(--blue)}
+    @media(max-width:760px){
+      .project-hero{grid-template-columns:1fr;gap:22px;padding:28px 0 42px}
+      .project-hero h1{letter-spacing:-1.5px}
+      .project-logo-frame{min-height:220px;padding:22px}
+      .project-logo{max-width:250px;max-height:240px}
+      .info-grid{grid-template-columns:1fr}
+      .release-promo{align-items:flex-start}
+      .release-promo-mark{flex-basis:76px;width:76px;height:76px;font-size:1.4rem;border-radius:18px}
+      .release-promo-mark span{font-size:1rem}
+    }
+    @media(max-width:420px){.release-promo{display:block}.release-promo-mark{display:none}.info-list>div{grid-template-columns:92px minmax(0,1fr)}}
   </style>
 </head>
 <body>
@@ -55,53 +83,100 @@
   </header>
 
   <main>
-    <section class="container project-hero">
+    <section class="container project-hero" id="overview">
       <div class="project-copy">
         <a class="back-link" href="../index.html#projects">← Back to all projects</a>
         <div class="eyebrow">Project 01 · Anime &amp; manga</div>
         <h1>What's <span class="gradient-text">Next</span></h1>
-        <p class="project-lead">An independent project exploring ways to help anime and manga fans decide what to watch or read next, with AniList integration as part of its current direction.</p>
+        <p class="project-lead">A phone-friendly AniList companion that helps you choose what to watch or read based on the time you have, while bringing your lists, discovery tools, progress tracking, and anime/manga information together.</p>
         <div class="tag-row">
-          <span class="tag">Anime discovery</span>
-          <span class="tag">Manga</span>
-          <span class="tag">AniList integration</span>
-          <span class="tag">Community testing</span>
+          <span class="tag">Web app</span>
+          <span class="tag">Android APK</span>
+          <span class="tag">AniList login required</span>
+          <span class="tag">MIT license</span>
         </div>
         <div class="hero-buttons">
-          <a class="button button-primary" href="https://github.com/tokyo720022-create/What-Next" target="_blank" rel="noopener noreferrer">View app repository ↗</a>
-          <a class="button" href="../index.html#contact">Contact developer</a>
+          <a class="button button-primary" href="whats-next/releases.html">Browse APK releases ↓</a>
+          <a class="button" href="https://tokyo720022-create.github.io/What-Next/" target="_blank" rel="noopener noreferrer">Open web app ↗</a>
+          <a class="button" href="https://github.com/tokyo720022-create/What-Next" target="_blank" rel="noopener noreferrer">Source code ↗</a>
         </div>
       </div>
-      <div><img class="project-logo" src="../assets/images/whats-next.png" alt="What's Next project logo"></div>
+      <div class="project-logo-frame">
+        <img class="project-logo" src="../assets/images/whats-next.png" alt="What's Next project logo">
+      </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="information">
       <div class="container">
         <div class="section-intro">
-          <div class="eyebrow">Project overview</div>
-          <h2>Find your next favourite.</h2>
-          <p>What's Next is in development. These are the project's goals, not a promise that every feature is already available.</p>
+          <div class="eyebrow">Project information</div>
+          <h2>Choose what to watch or read next.</h2>
+          <p>What's Next uses your AniList account to help with discovery, planning, and keeping track of the anime and manga you care about.</p>
         </div>
-        <div class="detail-grid">
-          <article class="detail-card"><div class="card-icon" aria-hidden="true">✦</div><h3>Discovery</h3><p>Make exploring anime and manga and choosing what to try next feel straightforward.</p></article>
-          <article class="detail-card"><div class="card-icon" aria-hidden="true">◈</div><h3>AniList connectivity</h3><p>Explore the intended AniList integration subject to API availability and applicable terms.</p></article>
-          <article class="detail-card"><div class="card-icon" aria-hidden="true">⌘</div><h3>Early feedback</h3><p>Use testing and reproducible bug reports to improve usability, stability, and compatibility.</p></article>
+
+        <div class="info-grid">
+          <article class="info-card">
+            <div class="card-icon" aria-hidden="true">✦</div>
+            <h3>What you can do</h3>
+            <ul class="feature-list">
+              <li><strong>Pick by time:</strong> get suggestions for watching, reading, or either, based on the time you have.</li>
+              <li><strong>Discover titles:</strong> explore anime and manga by genre, format, popularity, trends, and more.</li>
+              <li><strong>Manage your lists:</strong> browse, filter, and update your AniList entries and progress.</li>
+              <li><strong>Explore details:</strong> open media, character, staff, and studio pages with related recommendations.</li>
+              <li><strong>Track your journey:</strong> view airing schedules, statistics, goals, and progress tools.</li>
+              <li><strong>Useful on the go:</strong> use privacy options, cover blurring, and offline access to previously saved data.</li>
+            </ul>
+          </article>
+
+          <aside class="info-card">
+            <div class="card-icon" aria-hidden="true">⌘</div>
+            <h3>Project details</h3>
+            <dl class="info-list">
+              <div><dt>Project type</dt><dd>Phone-friendly web app with Android APK builds</dd></div>
+              <div><dt>Account</dt><dd>An AniList account and login are required</dd></div>
+              <div><dt>Technology</dt><dd>HTML, CSS, JavaScript, and the AniList GraphQL API</dd></div>
+              <div><dt>License</dt><dd>MIT</dd></div>
+              <div><dt>Status</dt><dd>In active development</dd></div>
+              <div><dt>Downloads</dt><dd><a class="inline-link" href="whats-next/releases.html">View all published APKs ↗</a></dd></div>
+            </dl>
+          </aside>
         </div>
-        <div class="notice"><strong>Development status:</strong> What's Next is a work in progress. Beta access, features, and release details will be announced when available.</div>
+
+        <div class="notice">
+          <strong>Before installing:</strong> some APK filenames indicate debug/testing builds. Check the build label and release notes before installing, and download only from the official release list. Each APK entry links back to its original GitHub release.
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container about">
-        <div class="eyebrow">Get involved</div>
-        <h2>Help shape What's Next.</h2>
-        <p>Visit the source repository for development information, or contact the developer to ask about testing and feedback.</p>
-        <div class="about-links">
-          <a class="text-link" href="https://github.com/tokyo720022-create/What-Next" target="_blank" rel="noopener noreferrer">View repository ↗</a>
-          <a class="text-link" href="../index.html#contact">Contact Tokyo ↗</a>
-          <a class="text-link" href="../index.html">Tokyo Brotherhood Lab home ↗</a>
+    <section class="section" id="apk-releases">
+      <div class="container">
+        <div class="release-promo">
+          <div>
+            <div class="eyebrow">Android builds</div>
+            <h2>APK releases, all in one place.</h2>
+            <p>The releases page gathers every APK attached to the project's published GitHub releases, with version details, file sizes, dates, and direct download links. It refreshes from GitHub automatically.</p>
+            <div class="hero-buttons">
+              <a class="button button-primary" href="whats-next/releases.html">Open APK release list ↗</a>
+              <a class="button" href="https://github.com/tokyo720022-create/What-Next/releases" target="_blank" rel="noopener noreferrer">GitHub releases ↗</a>
+            </div>
+          </div>
+          <div class="release-promo-mark" aria-hidden="true">APK<span>↓</span></div>
         </div>
-        <p class="microcopy">What's Next is an independent, unofficial project and is not affiliated with or endorsed by AniList.</p>
+      </div>
+    </section>
+
+    <section class="section" id="getting-started">
+      <div class="container about">
+        <div class="eyebrow">Getting started</div>
+        <h2>How to try What's Next.</h2>
+        <p>Open the web app or choose an APK from the release list. Sign in with AniList to use your lists and personalised suggestions. Check the release notes before installing an Android build, and report bugs through the source repository.</p>
+        <div class="about-links">
+          <a class="text-link" href="https://tokyo720022-create.github.io/What-Next/" target="_blank" rel="noopener noreferrer">Open the web app ↗</a>
+          <a class="text-link" href="whats-next/releases.html">Browse APK downloads ↗</a>
+          <a class="text-link" href="https://github.com/tokyo720022-create/What-Next" target="_blank" rel="noopener noreferrer">Report issues / view source ↗</a>
+          <a class="text-link" href="../index.html#contact">Contact Tokyo ↗</a>
+        </div>
+        <p class="microcopy">What's Next is an independent, unofficial project and is not affiliated with or endorsed by AniList. See the repository README for its privacy notes and setup details.</p>
       </div>
     </section>
   </main>

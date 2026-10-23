@@ -5,32 +5,104 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#090b14">
   <meta name="description" content="Explore Tokyo Brotherhood Lab: independent projects in anime, manga, and technology.">
+
   <title>Tokyo Brotherhood Lab — Independent Project Hub</title>
-  <link rel="icon" href="assets/images/whats-next.png" type="image/png">
+
+  <link
+    rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23090b14'/%3E%3Cpath d='M16 20h32M32 20v27M21 40l11-11 11 11' fill='none' stroke='%23a18aff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"
+    type="image/svg+xml"
+  >
+
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="assets/js/main.js" defer></script>
 </head>
+
 <body>
+
+  <!-- Premium Tokyo Brotherhood Lab header -->
   <header class="header">
+    <div class="header-glow" aria-hidden="true"></div>
+
     <div class="container nav">
+
       <a class="brand" href="#home" aria-label="Tokyo Brotherhood Lab home">
-        <span class="brand-mark" aria-hidden="true">TBL</span>
-        <span>Tokyo Brotherhood Lab</span>
+
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none">
+            <defs>
+              <linearGradient id="brandGradient" x1="5" y1="5" x2="43" y2="43">
+                <stop offset="0%" stop-color="#f45bda"/>
+                <stop offset="52%" stop-color="#a18aff"/>
+                <stop offset="100%" stop-color="#62caff"/>
+              </linearGradient>
+            </defs>
+
+            <rect
+              x="2.5"
+              y="2.5"
+              width="43"
+              height="43"
+              rx="14"
+              stroke="url(#brandGradient)"
+              stroke-width="1.5"
+            />
+
+            <path
+              d="M13 16H35M24 16V35M16 28L24 20L32 28"
+              stroke="url(#brandGradient)"
+              stroke-width="2.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+
+            <circle cx="24" cy="37" r="2" fill="#62caff"/>
+          </svg>
+        </span>
+
+        <span class="brand-copy">
+          <span class="brand-name">
+            Tokyo Brotherhood <span class="brand-lab">Lab</span>
+          </span>
+
+          <span class="brand-tagline">
+            ANIME <span>·</span> MANGA <span>·</span> TECHNOLOGY
+          </span>
+        </span>
+
       </a>
 
       <nav class="nav-links" aria-label="Main navigation">
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-        <a class="nav-about" href="#about">About</a>
+
+        <a class="nav-link" href="#projects">
+          <span class="nav-link-index">01</span>
+          <span>Projects</span>
+        </a>
+
+        <a class="nav-link" href="#contact">
+          <span class="nav-link-index">02</span>
+          <span>Contact</span>
+        </a>
+
+        <a class="nav-link nav-about" href="#about">
+          <span class="nav-link-index">03</span>
+          <span>About</span>
+        </a>
+
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- Main introduction: no duplicate project logo -->
+
+    <!-- Hero -->
     <section class="container hero" id="home">
       <div class="hero-copy-block">
-        <div class="eyebrow">Independent project hub</div>
+
+        <div class="eyebrow">
+          <span class="status-dot"></span>
+          Independent project hub
+        </div>
 
         <h1>
           Ideas become<br>
@@ -53,13 +125,17 @@
           </a>
         </div>
 
-        <p class="microcopy">Independent projects. Shared passion.</p>
+        <p class="microcopy">
+          Independent projects. Shared passion.
+        </p>
+
       </div>
     </section>
 
     <!-- Projects -->
     <section class="section" id="projects">
       <div class="container">
+
         <div class="section-heading">
           <div class="eyebrow">The portfolio</div>
           <h2>Projects I'm building.</h2>
@@ -69,6 +145,7 @@
         </div>
 
         <div class="projects">
+
           <!-- What's Next -->
           <article class="project-card">
             <div class="project-cover">
@@ -135,18 +212,21 @@
               </div>
             </div>
           </article>
+
         </div>
 
         <div class="future-card">
           <strong>More projects ahead ✦</strong><br>
           This hub can grow as new ideas become real projects.
         </div>
+
       </div>
     </section>
 
     <!-- Contact -->
     <section class="section" id="contact">
       <div class="container">
+
         <div class="contact-panel">
           <div>
             <div class="eyebrow">Connect with me</div>
@@ -186,12 +266,14 @@
             ></p>
           </div>
         </div>
+
       </div>
     </section>
 
     <!-- About -->
     <section class="section" id="about">
       <div class="container about">
+
         <div class="eyebrow">About this hub</div>
 
         <h2>A home for independent projects, built by Tokyo.</h2>
@@ -227,12 +309,15 @@
             Developer profile ↗
           </a>
         </div>
+
       </div>
     </section>
+
   </main>
 
   <footer class="footer">
     <div class="container footer-inner">
+
       <span>
         © <span id="year"></span> Tokyo Brotherhood Lab.
       </span>
@@ -244,7 +329,9 @@
       >
         Website source ↗
       </a>
+
     </div>
   </footer>
+
 </body>
 </html>

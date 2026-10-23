@@ -136,7 +136,7 @@
       border: none;
     }
 
-    /* Hero section */
+    /* Hero */
 
     .hero {
       padding: 78px 0 75px;
@@ -203,12 +203,7 @@
       font-size: .81rem;
     }
 
-    /* Your actual What's Next logo */
-
-    .logo-visual {
-      width: 100%;
-      min-width: 0;
-    }
+    /* Actual What's Next logo */
 
     .hero-logo {
       display: block;
@@ -350,7 +345,7 @@
       font-size: .85rem;
     }
 
-    /* About */
+    /* About and project links */
 
     .about {
       max-width: 760px;
@@ -360,6 +355,25 @@
 
     .about p {
       color: var(--muted);
+    }
+
+    .about-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px 28px;
+      margin-top: 25px;
+    }
+
+    .about-links .text-link {
+      color: var(--blue);
+      font-weight: 600;
+      transition: color .2s ease;
+    }
+
+    .about-links .text-link:hover {
+      color: var(--purple);
     }
 
     /* Footer */
@@ -520,7 +534,7 @@
         </p>
       </div>
 
-      <div class="logo-visual">
+      <div>
         <img
           class="hero-logo"
           src="1000108559.png"
@@ -623,20 +637,32 @@
       <div class="container about">
         <div class="eyebrow">About What's Next</div>
         <h2>An independent project, built one step at a time.</h2>
+
         <p>
           What's Next is an independent, unofficial project. It is not
           affiliated with or endorsed by AniList. Any use of AniList services
           is subject to AniList's applicable terms and API policies.
         </p>
 
-        <a
-          class="text-link"
-          href="https://github.com/tokyo720022-create"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Developer profile on GitHub ↗
-        </a>
+        <div class="about-links">
+          <a
+            class="text-link"
+            href="https://github.com/tokyo720022-create/What-Next"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            📦 Project Repository ↗
+          </a>
+
+          <a
+            class="text-link"
+            href="https://github.com/tokyo720022-create"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            👤 Developer Profile ↗
+          </a>
+        </div>
       </div>
     </section>
   </main>

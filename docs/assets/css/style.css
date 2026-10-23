@@ -1,3 +1,8 @@
+/* ========================================
+   TOKYO BROTHERHOOD LAB
+   Neon Tokyo · Dark cinematic interface
+   ======================================== */
+
 :root {
   color-scheme: dark;
 
@@ -6,10 +11,13 @@
   --panel2: #171d32;
   --text: #f5f6ff;
   --muted: #a2abc3;
+
   --purple: #a18aff;
   --blue: #62caff;
   --pink: #f45bda;
+
   --border: rgba(177, 188, 255, .15);
+  --header-bg: rgba(9, 11, 20, .84);
 }
 
 * {
@@ -18,18 +26,32 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 85px;
+  scroll-padding-top: 100px;
 }
 
 body {
   margin: 0;
   color: var(--text);
   background:
-    radial-gradient(ellipse at 85% 4%, #27205255, transparent 33%),
-    radial-gradient(ellipse at 5% 45%, #103c6640, transparent 30%),
+    radial-gradient(
+      ellipse at 85% 4%,
+      #27205255,
+      transparent 33%
+    ),
+    radial-gradient(
+      ellipse at 5% 45%,
+      #103c6640,
+      transparent 30%
+    ),
     var(--bg);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
   line-height: 1.65;
 }
 
@@ -47,85 +69,293 @@ button {
   margin-inline: auto;
 }
 
-/* Header and navigation */
+/* ========================================
+   HEADER / NAVIGATION
+   ======================================== */
 
 .header {
   position: sticky;
   top: 0;
-  z-index: 10;
-  background: #090b14e8;
-  backdrop-filter: blur(18px);
+  z-index: 100;
+
+  background: var(--header-bg);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
   border-bottom: 1px solid var(--border);
+  isolation: isolate;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  bottom: -1px;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--pink),
+    var(--purple),
+    var(--blue),
+    transparent
+  );
+
+  opacity: .7;
+  pointer-events: none;
+}
+
+.header-glow {
+  position: absolute;
+  top: -65px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: min(600px, 90%);
+  height: 130px;
+
+  background: linear-gradient(
+    90deg,
+    #f45bda10,
+    #9278ff12,
+    #62caff10
+  );
+
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .nav {
-  min-height: 74px;
+  position: relative;
+  min-height: 86px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 15px;
+  gap: 18px;
 }
+
+/* Brand */
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 11px;
-  font-weight: 800;
-  font-size: 1.05rem;
-  letter-spacing: -.5px;
-  white-space: nowrap;
+  gap: 12px;
+
+  min-width: 0;
+  flex-shrink: 1;
+
+  color: var(--text);
 }
 
 .brand-mark {
-  width: 43px;
-  height: 43px;
-  flex-shrink: 0;
   display: grid;
   place-items: center;
-  border-radius: 13px;
-  font-size: .78rem;
-  letter-spacing: -.5px;
-  font-weight: 900;
+
+  width: 49px;
+  height: 49px;
+  flex: 0 0 49px;
+
+  padding: 2px;
+
+  border-radius: 16px;
   background: linear-gradient(
-    135deg,
+    145deg,
     var(--pink),
+    var(--purple) 52%,
+    var(--blue)
+  );
+
+  box-shadow:
+    0 0 20px #9278ff22,
+    inset 0 0 0 1px #ffffff20;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.brand-mark svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  padding: 3px;
+
+  border-radius: 14px;
+  background: #0b0d18;
+}
+
+.brand:hover .brand-mark {
+  transform: rotate(-4deg) scale(1.04);
+
+  box-shadow:
+    0 0 27px #9278ff45,
+    0 0 12px #62caff18;
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+  min-width: 0;
+}
+
+.brand-name {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: nowrap;
+  gap: 5px;
+
+  white-space: nowrap;
+
+  font-size: clamp(.92rem, 1.8vw, 1.18rem);
+  line-height: 1.25;
+  font-weight: 850;
+  letter-spacing: -.55px;
+}
+
+.brand-lab {
+  color: var(--blue);
+
+  background: linear-gradient(
+    100deg,
     var(--purple),
     var(--blue)
   );
-  color: #090b14;
-  box-shadow: 0 0 25px #8c6cff30;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
+.brand-tagline {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  color: #8590b0;
+
+  font-size: .57rem;
+  font-weight: 750;
+  letter-spacing: 1.25px;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.brand-tagline span {
+  color: var(--purple);
+}
+
+/* Navigation container */
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 23px;
-  color: var(--muted);
-  font-size: .9rem;
+  justify-content: center;
+  gap: 3px;
+
+  padding: 5px;
+
+  flex-shrink: 0;
+
+  border: 1px solid rgba(177, 188, 255, .12);
+  border-radius: 16px;
+
+  background: rgba(17, 21, 37, .72);
+
+  box-shadow:
+    inset 0 1px 0 #ffffff05,
+    0 6px 24px #00000010;
 }
 
-.nav-links a:hover,
-.text-link:hover {
+.nav-link {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  min-height: 40px;
+  padding: 8px 12px;
+
+  border: 1px solid transparent;
+  border-radius: 11px;
+
+  color: #aab3cb;
+
+  font-size: .84rem;
+  font-weight: 650;
+  white-space: nowrap;
+
+  transition:
+    color .2s ease,
+    background .2s ease,
+    border-color .2s ease;
+}
+
+.nav-link-index {
+  color: #777fa0;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: .66rem;
+  font-weight: 800;
+
+  transition: color .2s ease;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+  border-color: #a18aff25;
+
+  background: linear-gradient(
+    135deg,
+    #a18aff15,
+    #62caff08
+  );
+}
+
+.nav-link:hover .nav-link-index {
   color: var(--blue);
 }
 
-/* Buttons */
+.nav-link:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
 
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+
   min-height: 44px;
   padding: 11px 17px;
+
   border: 1px solid var(--border);
   border-radius: 12px;
+
   background: var(--panel2);
   color: var(--text);
+
   cursor: pointer;
+
   font-size: .9rem;
   font-weight: 700;
-  transition: transform .2s, border-color .2s;
+
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease;
 }
 
 .button:hover {
@@ -136,13 +366,26 @@ button {
 .button-primary {
   color: #090b14;
   border: none;
-  background: linear-gradient(110deg, var(--purple), var(--blue));
+
+  background: linear-gradient(
+    110deg,
+    var(--purple),
+    var(--blue)
+  );
 }
 
-/* Hero: text only, no duplicate What's Next logo */
+.button-primary:hover {
+  box-shadow: 0 7px 24px #9278ff25;
+  border-color: transparent;
+}
+
+/* ========================================
+   HERO
+   ======================================== */
 
 .hero {
   padding: 85px 0 75px;
+
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
@@ -158,19 +401,33 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+
   padding: 7px 12px;
+
   border: 1px solid #a18aff45;
   border-radius: 999px;
+
   background: #a18aff0e;
   color: #c9bcff;
+
   font-size: .73rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1.1px;
 }
 
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+
+  background: #68e0b0;
+  box-shadow: 0 0 12px #68e0b0;
+}
+
 h1 {
   margin: 23px 0 17px;
+
   font-size: clamp(2.8rem, 6.7vw, 5rem);
   line-height: 1.05;
   letter-spacing: -2.8px;
@@ -178,12 +435,14 @@ h1 {
 
 .gradient-text {
   color: var(--purple);
+
   background: linear-gradient(
     100deg,
     var(--pink),
     var(--purple),
     var(--blue)
   );
+
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -208,7 +467,9 @@ h1 {
   font-size: .81rem;
 }
 
-/* Project section */
+/* ========================================
+   PROJECTS
+   ======================================== */
 
 .section {
   padding: 66px 0;
@@ -222,6 +483,7 @@ h1 {
 
 .section-heading h2 {
   margin: 13px 0;
+
   font-size: clamp(1.9rem, 4.5vw, 2.8rem);
   line-height: 1.2;
   letter-spacing: -1px;
@@ -241,12 +503,22 @@ h1 {
 .project-card {
   display: flex;
   flex-direction: column;
+
   min-width: 0;
   overflow: hidden;
+
   border: 1px solid var(--border);
   border-radius: 23px;
-  background: linear-gradient(145deg, #171d32, #0e1221);
-  transition: transform .22s, border-color .22s;
+
+  background: linear-gradient(
+    145deg,
+    #171d32,
+    #0e1221
+  );
+
+  transition:
+    transform .22s ease,
+    border-color .22s ease;
 }
 
 .project-card:hover {
@@ -254,31 +526,49 @@ h1 {
   border-color: #9278ff85;
 }
 
-/* Both project logos remain here */
-
 .project-cover {
   min-height: 210px;
   overflow: hidden;
+
   display: grid;
   place-items: center;
+
   padding: 18px;
+
   background:
-    radial-gradient(circle at 75% 20%, #54409b70, transparent 45%),
-    linear-gradient(135deg, #10172a, #1a1431);
+    radial-gradient(
+      circle at 75% 20%,
+      #54409b70,
+      transparent 45%
+    ),
+    linear-gradient(
+      135deg,
+      #10172a,
+      #1a1431
+    );
 }
 
 .project-cover img {
   display: block;
   width: 100%;
   max-height: 340px;
+
   object-fit: contain;
   border-radius: 13px;
 }
 
 .tml-cover {
   background:
-    radial-gradient(circle at 20% 20%, #c13cbb40, transparent 45%),
-    radial-gradient(circle at 85% 90%, #426dff40, transparent 45%),
+    radial-gradient(
+      circle at 20% 20%,
+      #c13cbb40,
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 85% 90%,
+      #426dff40,
+      transparent 45%
+    ),
     #101323;
 }
 
@@ -323,25 +613,40 @@ h1 {
 .future-card {
   margin-top: 22px;
   padding: 20px;
+
   border: 1px dashed #8b85b64d;
   border-radius: 18px;
+
   text-align: center;
   color: var(--muted);
 }
 
-/* Contact section */
+/* ========================================
+   CONTACT
+   ======================================== */
 
 .contact-panel {
   display: grid;
   grid-template-columns: 1fr .8fr;
   align-items: center;
   gap: 30px;
+
   padding: clamp(25px, 5vw, 43px);
+
   border: 1px solid #9278ff50;
   border-radius: 26px;
+
   background:
-    radial-gradient(ellipse at 95% 10%, #43bdeb15, transparent 45%),
-    linear-gradient(135deg, #17162d, #101525);
+    radial-gradient(
+      ellipse at 95% 10%,
+      #43bdeb15,
+      transparent 45%
+    ),
+    linear-gradient(
+      135deg,
+      #17162d,
+      #101525
+    );
 }
 
 .contact-panel h2 {
@@ -356,8 +661,10 @@ h1 {
 
 .contact-card {
   padding: 23px;
+
   border: 1px solid var(--border);
   border-radius: 19px;
+
   background: #080b1477;
 }
 
@@ -368,13 +675,18 @@ h1 {
 
 .discord-name {
   display: block;
+
   margin: 13px 0;
   padding: 12px;
+
   overflow-wrap: anywhere;
+
   border: 1px solid var(--border);
   border-radius: 10px;
+
   background: var(--bg);
   color: #c7b7ff;
+
   font-family: monospace;
 }
 
@@ -387,7 +699,9 @@ h1 {
   margin-bottom: 0;
 }
 
-/* About and repository links */
+/* ========================================
+   ABOUT
+   ======================================== */
 
 .about {
   max-width: 760px;
@@ -413,11 +727,15 @@ h1 {
   font-weight: 650;
 }
 
-/* Footer */
+/* ========================================
+   FOOTER
+   ======================================== */
 
 .footer {
   padding: 27px 0;
+
   border-top: 1px solid var(--border);
+
   color: #8993ad;
   font-size: .83rem;
 }
@@ -434,21 +752,62 @@ h1 {
   color: #c1b5ff;
 }
 
+/* Accessibility */
+
 :focus-visible {
   outline: 2px solid var(--blue);
   outline-offset: 4px;
 }
 
-/* Mobile */
+/* ========================================
+   RESPONSIVE NAVIGATION / MOBILE
+   ======================================== */
 
 @media (max-width: 760px) {
   .nav {
-    min-height: 68px;
+    min-height: 76px;
+    gap: 10px;
+  }
+
+  .brand {
+    gap: 9px;
+  }
+
+  .brand-mark {
+    width: 43px;
+    height: 43px;
+    flex-basis: 43px;
+    border-radius: 14px;
+  }
+
+  .brand-name {
+    font-size: .9rem;
+    letter-spacing: -.45px;
+    gap: 4px;
+  }
+
+  .brand-tagline {
+    font-size: .49rem;
+    letter-spacing: .8px;
+    gap: 4px;
   }
 
   .nav-links {
-    gap: 12px;
-    font-size: .8rem;
+    gap: 2px;
+    padding: 4px;
+    border-radius: 13px;
+  }
+
+  .nav-link {
+    min-height: 36px;
+    padding: 7px 9px;
+    gap: 0;
+    font-size: .78rem;
+    border-radius: 9px;
+  }
+
+  .nav-link-index {
+    display: none;
   }
 
   .hero {
@@ -482,24 +841,54 @@ h1 {
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 520px) {
+  .nav {
+    min-height: 72px;
+    gap: 7px;
+  }
+
   .brand {
-    font-size: .89rem;
+    gap: 8px;
   }
 
   .brand-mark {
-    width: 36px;
-    height: 36px;
-    font-size: .68rem;
+    width: 39px;
+    height: 39px;
+    flex-basis: 39px;
+  }
+
+  .brand-name {
+    font-size: .79rem;
+    letter-spacing: -.35px;
+  }
+
+  .brand-tagline {
+    display: none;
   }
 
   .nav-links {
-    gap: 9px;
-    font-size: .77rem;
+    gap: 1px;
+    padding: 3px;
   }
 
-  .nav-links .nav-about {
+  .nav-link {
+    padding: 7px 8px;
+    font-size: .75rem;
+  }
+
+  .nav-about {
     display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .brand-name {
+    font-size: .72rem;
+  }
+
+  .nav-link {
+    padding: 7px 6px;
+    font-size: .7rem;
   }
 
   .hero-buttons .button {
@@ -516,7 +905,7 @@ h1 {
   }
 }
 
-/* Respect reduced-motion preferences */
+/* Reduce animations for users who request it */
 
 @media (prefers-reduced-motion: reduce) {
   *,

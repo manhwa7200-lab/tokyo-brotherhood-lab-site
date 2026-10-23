@@ -4,25 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#090b14">
-  <meta name="description" content="Discover What's Next, an independent, unofficial AniList companion project for anime and manga fans. Explore the project and join beta testing.">
-  <title>What's Next — Discover What Comes Next</title>
+  <meta name="description" content="Explore Tokyo's independent projects in anime, manga, and technology.">
+  <title>Tokyo's Project Hub</title>
 
   <style>
     :root {
       color-scheme: dark;
       --bg: #090b14;
       --panel: #111525;
-      --panel-light: #171c30;
+      --panel2: #171d32;
       --text: #f5f6ff;
       --muted: #a2abc3;
-      --purple: #9278ff;
+      --purple: #a18aff;
       --blue: #62caff;
-      --border: rgba(177, 188, 255, 0.14);
+      --pink: #f45bda;
+      --border: rgba(177, 188, 255, .15);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html {
       scroll-behavior: smooth;
@@ -31,13 +30,13 @@
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(ellipse at 80% 8%, rgba(99, 76, 205, .15), transparent 35%),
-        radial-gradient(ellipse at 5% 42%, rgba(40, 133, 200, .09), transparent 35%),
+        radial-gradient(ellipse at 85% 4%, #27205255, transparent 33%),
+        radial-gradient(ellipse at 5% 45%, #103c6640, transparent 30%),
         var(--bg);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
       line-height: 1.65;
     }
 
@@ -46,431 +45,442 @@
       text-decoration: none;
     }
 
-    button {
-      font: inherit;
-    }
+    button { font: inherit; }
 
     .container {
-      width: min(1080px, 90%);
+      width: min(1100px, 90%);
       margin-inline: auto;
     }
-
-    /* Navigation */
 
     .header {
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(9, 11, 20, .88);
+      background: #090b14e8;
       backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
     }
 
     .nav {
-      min-height: 76px;
+      min-height: 74px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      gap: 15px;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 11px;
-      font-size: 1.16rem;
       font-weight: 800;
-      letter-spacing: -.6px;
+      font-size: 1.08rem;
+      letter-spacing: -.5px;
       white-space: nowrap;
     }
 
-    .brand-logo {
-      width: 44px;
-      height: 44px;
-      flex-shrink: 0;
-      object-fit: cover;
-      border-radius: 12px;
-      border: 1px solid var(--border);
+    .brand-mark {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      font-size: 1.15rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--pink), var(--purple), var(--blue));
+      color: #090b14;
+      box-shadow: 0 0 25px #8c6cff30;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 25px;
+      gap: 23px;
       color: var(--muted);
-      font-size: .92rem;
+      font-size: .9rem;
     }
 
     .nav-links a:hover,
-    .text-link:hover {
-      color: var(--blue);
-    }
-
-    /* Buttons */
+    .text-link:hover { color: var(--blue); }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 9px;
-      min-height: 46px;
-      padding: 12px 19px;
+      gap: 8px;
+      min-height: 44px;
+      padding: 11px 17px;
       border: 1px solid var(--border);
-      border-radius: 13px;
+      border-radius: 12px;
+      background: var(--panel2);
       color: var(--text);
-      background: var(--panel-light);
       cursor: pointer;
+      font-size: .9rem;
       font-weight: 700;
-      font-size: .92rem;
-      transition: transform .2s ease, border-color .2s ease;
+      transition: transform .2s, border-color .2s;
     }
 
     .button:hover {
       transform: translateY(-2px);
-      border-color: rgba(146, 120, 255, .7);
+      border-color: var(--purple);
     }
 
     .button-primary {
-      color: #080b16;
-      background: linear-gradient(110deg, var(--purple), var(--blue));
+      color: #090b14;
       border: none;
+      background: linear-gradient(110deg, var(--purple), var(--blue));
     }
 
-    /* Hero */
-
     .hero {
-      padding: 78px 0 75px;
+      padding: 85px 0 75px;
       display: grid;
       grid-template-columns: 1.05fr .95fr;
       align-items: center;
-      gap: 45px;
+      gap: 44px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
-      color: #c7bcff;
-      border: 1px solid rgba(146, 120, 255, .26);
-      background: rgba(146, 120, 255, .08);
+      gap: 8px;
       padding: 7px 12px;
+      border: 1px solid #a18aff45;
       border-radius: 999px;
-      text-transform: uppercase;
+      background: #a18aff0e;
+      color: #c9bcff;
       font-size: .73rem;
-      letter-spacing: 1.25px;
       font-weight: 800;
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #68e0b0;
-      box-shadow: 0 0 12px #68e0b0;
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
     }
 
     h1 {
-      margin: 23px 0 18px;
-      font-size: clamp(2.65rem, 6vw, 5rem);
-      line-height: 1.04;
-      letter-spacing: -3px;
+      margin: 23px 0 17px;
+      font-size: clamp(2.8rem, 6.7vw, 5rem);
+      line-height: 1.05;
+      letter-spacing: -2.8px;
     }
 
     .gradient-text {
-      color: var(--blue);
-      background: linear-gradient(100deg, #b5a3ff, #6bd6ff);
+      color: var(--purple);
+      background: linear-gradient(100deg, var(--pink), var(--purple), var(--blue));
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .hero-copy {
-      max-width: 550px;
+      max-width: 540px;
       color: var(--muted);
-      font-size: 1.05rem;
+      font-size: 1.04rem;
     }
 
     .hero-buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 28px;
+      margin-top: 26px;
     }
 
-    .microcopy {
-      margin-top: 17px;
-      color: #7f8ba8;
-      font-size: .81rem;
+    .hero-art {
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 27px;
+      background: linear-gradient(145deg, #171b30, #0d1020);
+      box-shadow: 0 25px 75px #00000035;
     }
 
-    /* Actual What's Next logo */
-
-    .hero-logo {
+    .hero-art img {
       display: block;
       width: 100%;
       height: auto;
-      object-fit: contain;
-      border-radius: 24px;
-      filter: drop-shadow(0 12px 30px rgba(130, 65, 255, .18));
+      border-radius: 19px;
     }
 
-    /* Features */
-
-    .section {
-      padding: 70px 0;
-    }
+    .section { padding: 66px 0; }
 
     .section-heading {
-      max-width: 680px;
-      margin: 0 auto 36px;
+      max-width: 700px;
+      margin: 0 auto 35px;
       text-align: center;
     }
 
     .section-heading h2 {
-      margin: 12px 0;
-      font-size: clamp(1.9rem, 5vw, 2.7rem);
-      letter-spacing: -1.2px;
+      margin: 13px 0;
+      font-size: clamp(1.9rem, 4.5vw, 2.8rem);
       line-height: 1.2;
+      letter-spacing: -1px;
     }
 
     .section-heading p {
-      color: var(--muted);
       margin: 0;
+      color: var(--muted);
     }
 
-    .cards {
+    .projects {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 17px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
     }
 
-    .card {
-      padding: 25px;
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      overflow: hidden;
       border: 1px solid var(--border);
-      border-radius: 22px;
-      background: linear-gradient(
-        145deg,
-        rgba(24, 30, 51, .83),
-        rgba(14, 18, 32, .9)
-      );
+      border-radius: 23px;
+      background: linear-gradient(145deg, #171d32, #0e1221);
+      transition: transform .22s, border-color .22s;
     }
 
-    .card-icon {
-      width: 48px;
-      height: 48px;
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: #9278ff85;
+    }
+
+    .project-cover {
+      position: relative;
+      min-height: 210px;
+      overflow: hidden;
       display: grid;
       place-items: center;
-      border-radius: 15px;
-      background: rgba(146, 120, 255, .13);
-      font-size: 1.4rem;
+      padding: 18px;
+      background:
+        radial-gradient(circle at 75% 20%, #54409b70, transparent 45%),
+        linear-gradient(135deg, #10172a, #1a1431);
     }
 
-    .card h3 {
-      margin: 18px 0 8px;
-      font-size: 1.12rem;
+    .project-cover img {
+      display: block;
+      width: 100%;
+      max-height: 340px;
+      object-fit: contain;
+      border-radius: 13px;
     }
 
-    .card p {
-      margin: 0;
+    .tml-cover {
+      background:
+        radial-gradient(circle at 20% 20%, #c13cbb40, transparent 45%),
+        radial-gradient(circle at 85% 90%, #426dff40, transparent 45%),
+        #101323;
+    }
+
+    .tml-logo {
+      width: 145px;
+      height: 145px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #b4a1ff50;
+      border-radius: 28px;
+      background: linear-gradient(145deg, #25213e, #11182b);
+      box-shadow: 0 0 55px #975cff20;
+      transform: rotate(-3deg);
+    }
+
+    .tml-logo span:first-child {
+      font-size: 3rem;
+      line-height: 1.2;
+    }
+
+    .tml-logo span:last-child {
+      color: #cbbcff;
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .project-content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 23px;
+    }
+
+    .project-label {
+      color: #bcaaff;
+      font-size: .73rem;
+      font-weight: 800;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+    }
+
+    .project-content h3 {
+      margin: 8px 0;
+      font-size: 1.5rem;
+      line-height: 1.25;
+    }
+
+    .project-content p {
+      margin: 0 0 20px;
       color: var(--muted);
-      font-size: .93rem;
+      font-size: .94rem;
     }
 
-    /* Beta section */
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .project-actions .button {
+      flex: 1;
+    }
+
+    .future-card {
+      margin-top: 22px;
+      padding: 20px;
+      border: 1px dashed #8b85b64d;
+      border-radius: 18px;
+      text-align: center;
+      color: var(--muted);
+    }
 
     .beta-panel {
       display: grid;
       grid-template-columns: 1fr .8fr;
-      gap: 30px;
       align-items: center;
-      padding: clamp(25px, 5vw, 48px);
-      border: 1px solid rgba(146, 120, 255, .30);
-      border-radius: 28px;
+      gap: 30px;
+      padding: clamp(25px, 5vw, 43px);
+      border: 1px solid #9278ff50;
+      border-radius: 26px;
       background:
-        radial-gradient(ellipse at 95% 10%, rgba(67, 189, 235, .12), transparent 40%),
+        radial-gradient(ellipse at 95% 10%, #43bdeb15, transparent 45%),
         linear-gradient(135deg, #17162d, #101525);
     }
 
     .beta-panel h2 {
       margin: 12px 0;
-      font-size: clamp(1.8rem, 5vw, 2.7rem);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
       line-height: 1.2;
-      letter-spacing: -1px;
     }
 
-    .beta-panel p {
-      color: var(--muted);
-    }
+    .beta-panel p { color: var(--muted); }
 
     .contact-card {
       padding: 23px;
       border: 1px solid var(--border);
-      background: rgba(7, 10, 20, .48);
-      border-radius: 20px;
+      border-radius: 19px;
+      background: #080b1477;
     }
 
     .contact-card p {
-      margin-top: 0;
+      color: var(--muted);
       font-size: .9rem;
     }
 
     .discord-name {
       display: block;
-      overflow-wrap: anywhere;
       margin: 13px 0;
       padding: 12px;
-      border-radius: 10px;
-      background: #0b1020;
+      overflow-wrap: anywhere;
       border: 1px solid var(--border);
-      color: #bdb0ff;
-      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      border-radius: 10px;
+      background: var(--bg);
+      color: #c7b7ff;
+      font-family: monospace;
     }
 
-    .contact-card .button {
-      width: 100%;
-    }
+    .contact-card button { width: 100%; }
 
     #copyStatus {
-      margin: 12px 0 0;
       min-height: 1.4em;
+      margin-bottom: 0;
     }
-
-    .notice {
-      padding: 16px 18px;
-      margin-top: 22px;
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      color: var(--muted);
-      background: rgba(17, 21, 37, .7);
-      font-size: .85rem;
-    }
-
-    /* About and project links */
 
     .about {
       max-width: 760px;
-      margin-inline: auto;
+      margin: auto;
       text-align: center;
     }
 
-    .about p {
-      color: var(--muted);
-    }
+    .about p { color: var(--muted); }
 
     .about-links {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      gap: 14px 28px;
+      gap: 14px 27px;
       margin-top: 25px;
     }
 
-    .about-links .text-link {
+    .text-link {
       color: var(--blue);
-      font-weight: 600;
-      transition: color .2s ease;
+      font-weight: 650;
     }
-
-    .about-links .text-link:hover {
-      color: var(--purple);
-    }
-
-    /* Footer */
 
     .footer {
-      padding: 28px 0;
+      padding: 27px 0;
       border-top: 1px solid var(--border);
       color: #8993ad;
-      font-size: .82rem;
+      font-size: .83rem;
     }
 
     .footer-inner {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 12px;
     }
 
-    .footer a {
-      color: #c1b5ff;
-    }
+    .footer a { color: #c1b5ff; }
 
     :focus-visible {
       outline: 2px solid var(--blue);
       outline-offset: 4px;
     }
 
-    /* Mobile layout */
-
     @media (max-width: 760px) {
-      .nav {
-        min-height: 68px;
-      }
+      .nav { min-height: 68px; }
 
       .nav-links {
-        gap: 14px;
-        font-size: .82rem;
-      }
-
-      .nav-links .nav-cta {
-        display: none;
+        gap: 12px;
+        font-size: .8rem;
       }
 
       .hero {
         grid-template-columns: 1fr;
         gap: 30px;
-        padding: 56px 0 45px;
+        padding: 53px 0 48px;
       }
 
-      h1 {
-        letter-spacing: -1.8px;
-      }
+      h1 { letter-spacing: -1.7px; }
 
-      .hero-logo {
-        max-width: 560px;
-        margin-inline: auto;
-        border-radius: 20px;
-      }
+      .projects { grid-template-columns: 1fr; }
 
-      .cards {
-        grid-template-columns: 1fr;
-      }
+      .project-cover { min-height: 190px; }
 
-      .beta-panel {
-        grid-template-columns: 1fr;
-      }
+      .beta-panel { grid-template-columns: 1fr; }
 
-      .section {
-        padding: 52px 0;
-      }
+      .section { padding: 50px 0; }
     }
 
-    @media (max-width: 400px) {
-      .brand {
-        font-size: 1rem;
-      }
+    @media (max-width: 420px) {
+      .brand { font-size: .95rem; }
 
-      .brand-logo {
+      .brand-mark {
         width: 36px;
         height: 36px;
       }
 
-      .nav-links {
-        gap: 10px;
-        font-size: .78rem;
-      }
+      .nav-links { gap: 9px; }
 
-      .hero-buttons .button {
-        width: 100%;
-      }
+      .nav-links .nav-about { display: none; }
+
+      .hero-buttons .button { width: 100%; }
+
+      .project-actions { flex-direction: column; }
+
+      .footer-inner { flex-direction: column; align-items: flex-start; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
+      *, *::before, *::after {
         scroll-behavior: auto !important;
         transition: none !important;
       }
@@ -481,22 +491,15 @@
 <body>
   <header class="header">
     <div class="container nav">
-      <a class="brand" href="#home" aria-label="What's Next homepage">
-        <img
-          class="brand-logo"
-          src="1000108559.png"
-          alt="What's Next logo"
-        >
-        <span>What's Next</span>
+      <a class="brand" href="#home" aria-label="Tokyo's Project Hub">
+        <span class="brand-mark">T.</span>
+        <span>Tokyo's Projects</span>
       </a>
 
       <nav class="nav-links" aria-label="Main navigation">
-        <a href="#features">Project</a>
-        <a href="#beta">Beta</a>
-        <a href="#about">About</a>
-        <a class="button button-primary nav-cta" href="#beta">
-          Get involved ↗
-        </a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-about" href="#about">About</a>
       </nav>
     </div>
   </header>
@@ -504,110 +507,133 @@
   <main>
     <section class="container hero" id="home">
       <div>
-        <div class="eyebrow">
-          <span class="status-dot"></span>
-          Independent project · In development
-        </div>
+        <div class="eyebrow">Independent project hub</div>
 
         <h1>
-          Discover what<br>
-          comes <span class="gradient-text">next.</span>
+          Ideas become<br>
+          <span class="gradient-text">something more.</span>
         </h1>
 
         <p class="hero-copy">
-          What's Next is an independent project for anime and manga fans,
-          exploring better ways to discover what to watch or read next.
-          Built with community feedback and AniList integration in mind.
+          Welcome to my project hub — a home for independent projects
+          involving anime, manga, technology, and the things I love building.
+          Explore what I'm working on and follow each project's journey.
         </p>
 
         <div class="hero-buttons">
-          <a class="button button-primary" href="#beta">
-            Join beta testing <span aria-hidden="true">↗</span>
+          <a class="button button-primary" href="#projects">
+            Explore projects ↓
           </a>
-          <a class="button" href="#features">
-            Explore the project ↓
+          <a class="button" href="#contact">
+            Get in touch ↗
           </a>
         </div>
-
-        <p class="microcopy">
-          Early-stage project. Features and beta availability may change.
-        </p>
       </div>
 
-      <div>
+      <div class="hero-art">
         <img
-          class="hero-logo"
           src="1000108559.png"
-          alt="What's Next — anime and manga project artwork"
+          alt="What's Next anime-inspired project artwork"
           fetchpriority="high"
         >
       </div>
     </section>
 
-    <section class="section" id="features">
+    <section class="section" id="projects">
       <div class="container">
         <div class="section-heading">
-          <div class="eyebrow">The project</div>
-          <h2>Made for the next thing you'll love.</h2>
+          <div class="eyebrow">The portfolio</div>
+          <h2>Projects I'm building.</h2>
           <p>
-            What's Next is being developed with anime and manga fans in mind.
-            Here's the direction behind the project.
+            Different ideas, different purposes — all part of the journey.
           </p>
         </div>
 
-        <div class="cards">
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">✦</div>
-            <h3>Discovery first</h3>
-            <p>
-              A project focused on making it easier to explore anime and manga
-              and find your next favourite.
-            </p>
+        <div class="projects">
+          <!-- PROJECT 1: WHAT'S NEXT -->
+          <article class="project-card">
+            <div class="project-cover">
+              <img
+                src="1000108559.png"
+                alt="What's Next project logo"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="project-content">
+              <span class="project-label">Anime · Manga · Discovery</span>
+              <h3>What's Next</h3>
+
+              <p>
+                An independent, unofficial AniList-related project exploring
+                ways to help anime and manga fans discover what to watch or
+                read next. The project is under development.
+              </p>
+
+              <div class="project-actions">
+                <a
+                  class="button button-primary"
+                  href="https://github.com/tokyo720022-create/What-Next"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View app repository ↗
+                </a>
+              </div>
+            </div>
           </article>
 
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">◈</div>
-            <h3>AniList integration</h3>
-            <p>
-              AniList connectivity is part of the project. Available
-              functionality depends on the build and applicable API terms.
-            </p>
-          </article>
+          <!-- PROJECT 2: TOKYO MANGA LAB -->
+          <article class="project-card">
+            <div class="project-cover tml-cover">
+              <div class="tml-logo" aria-label="Tokyo Manga Lab">
+                <span>漫画</span>
+                <span>TOKYO MANGA LAB</span>
+              </div>
+            </div>
 
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">⌘</div>
-            <h3>Built with feedback</h3>
-            <p>
-              Real users can help identify issues, improve usability, and
-              suggest what deserves attention next.
-            </p>
+            <div class="project-content">
+              <span class="project-label">Manga · Creative project</span>
+              <h3>Tokyo Manga Lab</h3>
+
+              <p>
+                A manga-focused creative project. This space will introduce
+                its goals, tools, progress, and future features as the
+                project develops.
+              </p>
+
+              <div class="project-actions">
+                <a class="button" href="#contact">
+                  Ask about the project ↗
+                </a>
+              </div>
+            </div>
           </article>
+        </div>
+
+        <div class="future-card">
+          <strong>More projects ahead ✦</strong><br>
+          This hub can grow as new ideas become real projects.
         </div>
       </div>
     </section>
 
-    <section class="section" id="beta">
+    <section class="section" id="contact">
       <div class="container">
         <div class="beta-panel">
           <div>
-            <div class="eyebrow">Be part of the journey</div>
-            <h2>Help shape<br>What's Next.</h2>
+            <div class="eyebrow">Connect with me</div>
+            <h2>Follow the projects.<br>Help shape what's next.</h2>
+
             <p>
-              Interested in testing an early build? Get in touch to discuss
-              beta availability, share feedback, and help us improve the
-              project.
-            </p>
-            <p>
-              No promises of a perfect build — just a work in progress and
-              honest feedback.
+              Interested in testing What's Next, discussing Tokyo Manga Lab,
+              or sharing feedback? Contact me on Discord.
             </p>
           </div>
 
           <div class="contact-card">
-            <h3>Talk to the developer</h3>
-            <p>
-              Contact me on Discord to ask about beta testing.
-            </p>
+            <h3>Contact the developer</h3>
+            <p>Discord username</p>
 
             <span class="discord-name" id="discordName">
               orewatokyo720_47200
@@ -624,24 +650,24 @@
             <p id="copyStatus" role="status" aria-live="polite"></p>
           </div>
         </div>
-
-        <div class="notice">
-          <strong>Beta status:</strong>
-          This website is the project information page. Beta build availability
-          and installation instructions will be shared when they're ready.
-        </div>
       </div>
     </section>
 
     <section class="section" id="about">
       <div class="container about">
-        <div class="eyebrow">About What's Next</div>
-        <h2>An independent project, built one step at a time.</h2>
+        <div class="eyebrow">About this hub</div>
+
+        <h2>Built by Tokyo, one project at a time.</h2>
 
         <p>
-          What's Next is an independent, unofficial project. It is not
+          This website brings my independent projects together in one place.
+          Each project has its own purpose, development process, and updates.
+        </p>
+
+        <p>
+          What's Next is an independent, unofficial project and is not
           affiliated with or endorsed by AniList. Any use of AniList services
-          is subject to AniList's applicable terms and API policies.
+          is subject to their applicable terms and API policies.
         </p>
 
         <div class="about-links">
@@ -651,7 +677,7 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            📦 Project Repository ↗
+            📦 What's Next repository ↗
           </a>
 
           <a
@@ -660,7 +686,7 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            👤 Developer Profile ↗
+            👤 Developer profile ↗
           </a>
         </div>
       </div>
@@ -670,7 +696,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <span>
-        © <span id="year"></span> What's Next. Independent project.
+        © <span id="year"></span> Tokyo's Projects.
       </span>
 
       <a
@@ -699,7 +725,7 @@
         copyStatus.textContent = "Copied! Find me on Discord.";
       } catch (error) {
         copyStatus.textContent =
-          "Your Discord username is " + discordName +
+          "Username: " + discordName +
           ". Press and hold the username above to copy it.";
       }
     });

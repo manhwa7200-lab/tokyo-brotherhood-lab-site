@@ -688,6 +688,9 @@ h1 {
   color: #c7b7ff;
 
   font-family: monospace;
+  cursor: text;
+  user-select: all;
+  -webkit-user-select: all;
 }
 
 .contact-card button {
@@ -858,7 +861,12 @@ h1 {
   }
 
   .brand-name {
+    flex-wrap: wrap;
+    row-gap: 0;
+    white-space: normal;
+
     font-size: .79rem;
+    line-height: 1.2;
     letter-spacing: -.35px;
   }
 
@@ -902,6 +910,165 @@ h1 {
   .footer-inner {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+/* ========================================
+   PROJECT PAGES (shared by all pages in /projects)
+   ======================================== */
+
+.project-hero {
+  padding: 36px 0 52px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(250px, .75fr);
+  gap: 36px;
+  align-items: center;
+}
+
+.project-copy {
+  min-width: 0;
+}
+
+.back-link {
+  display: flex;
+  width: fit-content;
+  gap: 8px;
+  margin-bottom: 24px;
+
+  color: var(--blue);
+  font-weight: 650;
+}
+
+.project-hero h1 {
+  margin: 20px 0 16px;
+
+  font-size: clamp(2.6rem, 5.8vw, 4.4rem);
+  letter-spacing: -2px;
+}
+
+.project-lead {
+  max-width: 680px;
+
+  color: var(--muted);
+  font-size: 1.06rem;
+  line-height: 1.8;
+}
+
+.project-logo-frame {
+  display: grid;
+  place-items: center;
+
+  min-height: 270px;
+  padding: 26px;
+
+  border: 1px solid var(--border);
+  border-radius: 22px;
+
+  background: linear-gradient(145deg, #151b2b, #101522);
+}
+
+.project-logo {
+  display: block;
+
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  max-height: 300px;
+
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 22px 0;
+}
+
+.tag {
+  padding: 6px 11px;
+
+  border: 1px solid var(--border);
+  border-radius: 999px;
+
+  background: #a18aff0b;
+  color: #c7b7ff;
+
+  font-size: .8rem;
+}
+
+.tag-pink {
+  background: #f45bda0b;
+  color: #f2a9ee;
+}
+
+.section-intro {
+  max-width: 760px;
+  margin: 0 auto 28px;
+  text-align: center;
+}
+
+.section-intro p {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.notice {
+  margin-top: 22px;
+  padding: 18px;
+
+  border: 1px solid #a18aff38;
+  border-radius: 16px;
+
+  background: #171825;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.notice strong {
+  color: var(--text);
+}
+
+/* Small icon badge at the top of info cards */
+
+.card-icon {
+  display: grid;
+  place-items: center;
+
+  width: 40px;
+  height: 40px;
+
+  border: 1px solid #a18aff40;
+  border-radius: 12px;
+
+  background: linear-gradient(145deg, #a18aff18, #62caff0c);
+  color: var(--blue);
+
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+@media (max-width: 760px) {
+  .project-hero {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 28px 0 42px;
+  }
+
+  .project-hero h1 {
+    letter-spacing: -1.5px;
+  }
+
+  .project-logo-frame {
+    min-height: 220px;
+    padding: 22px;
+  }
+
+  .project-logo {
+    max-width: 250px;
+    max-height: 250px;
   }
 }
 

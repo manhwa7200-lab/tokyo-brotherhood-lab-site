@@ -5,13 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#090b14">
   <meta name="description" content="Browse every APK published in the official What's Next GitHub releases, with direct download links and build details.">
+  <link rel="canonical" href="https://tokyo720022-create.github.io/tokyo-brotherhood-lab-site/projects/whats-next/releases.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tokyo Brotherhood Lab">
+  <meta property="og:title" content="APK Releases — What's Next | Tokyo Brotherhood Lab">
+  <meta property="og:description" content="Browse every APK published in the official What's Next GitHub releases, with direct download links and build details.">
+  <meta property="og:url" content="https://tokyo720022-create.github.io/tokyo-brotherhood-lab-site/projects/whats-next/releases.html">
+  <meta property="og:image" content="https://tokyo720022-create.github.io/tokyo-brotherhood-lab-site/assets/images/og-whats-next.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="APK Releases — What's Next | Tokyo Brotherhood Lab">
+  <meta name="twitter:description" content="Browse every APK published in the official What's Next GitHub releases, with direct download links and build details.">
+  <meta name="twitter:image" content="https://tokyo720022-create.github.io/tokyo-brotherhood-lab-site/assets/images/og-whats-next.jpg">
   <title>APK Releases — What's Next | Tokyo Brotherhood Lab</title>
-  <link rel="icon" href="../../assets/images/whats-next.png" type="image/png">
+  <link rel="icon" href="../../assets/images/icon-whats-next.png" type="image/png" sizes="64x64">
   <link rel="stylesheet" href="../../assets/css/style.css">
   <script src="../../assets/js/main.js" defer></script>
+  <script src="../../assets/js/releases.js" defer></script>
   <style>
     .release-page-hero{padding:34px 0 28px}
-    .back-link{display:inline-flex;gap:8px;color:var(--blue);font-weight:650;margin-bottom:24px}
     .release-page-hero h1{font-size:clamp(2.35rem,6vw,4rem);letter-spacing:-1.8px;margin:12px 0}
     .release-page-hero p{max-width:760px;color:var(--muted);line-height:1.8}
     .source-line{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:20px}
@@ -27,7 +40,17 @@
     .release-badge.latest{color:#a8e9d0;border-color:#4cbf9255;background:#163126}
     .release-badge.debug{color:#ffd69a;border-color:#cf9b4d55;background:#302516}
     .release-meta{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--muted);font-size:.88rem;margin:8px 0 15px}
-    .release-notes{white-space:pre-line;overflow-wrap:anywhere;color:var(--muted);line-height:1.7;margin:0 0 18px}
+    .release-notes{overflow-wrap:anywhere;color:var(--muted);line-height:1.7;margin:0 0 18px}
+    .release-notes p{margin:0 0 10px;white-space:pre-line}
+    .release-notes h3{margin:14px 0 8px;font-size:1rem;color:var(--text)}
+    .release-notes ul,.release-notes ol{margin:0 0 10px;padding-left:22px}
+    .release-notes li+li{margin-top:4px}
+    .release-notes a{color:var(--blue)}
+    .release-notes code{padding:1px 5px;border-radius:6px;background:#0d111d;color:#d8d2ef;font-size:.86em}
+    .release-notes pre{margin:0 0 10px;padding:12px;overflow-x:auto;border-radius:10px;background:#0d111d}
+    .release-notes pre code{padding:0;background:none}
+    .release-notes blockquote{margin:0 0 10px;padding-left:12px;border-left:3px solid var(--border)}
+    .release-notes>details>summary{cursor:pointer;margin-bottom:10px;color:var(--text);font-weight:650}
     .asset-box{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px;border:1px solid var(--border);border-radius:14px;background:#0d111d}
     .asset-info{min-width:0}
     .asset-name{font-weight:750;overflow-wrap:anywhere}
@@ -67,8 +90,8 @@
       </a>
       <nav class="nav-links" aria-label="Main navigation">
         <a class="nav-link" href="../../index.html#projects"><span class="nav-link-index">01</span><span>Projects</span></a>
-        <a class="nav-link" href="../whats-next.html"><span class="nav-link-index">02</span><span>What's Next</span></a>
-        <a class="nav-link" href="../../index.html#contact"><span class="nav-link-index">03</span><span>Contact</span></a>
+        <a class="nav-link" href="../../index.html#contact"><span class="nav-link-index">02</span><span>Contact</span></a>
+        <a class="nav-link nav-about" href="../../index.html#about"><span class="nav-link-index">03</span><span>About</span></a>
       </nav>
     </div>
   </header>
@@ -78,7 +101,7 @@
       <a class="back-link" href="../whats-next.html">← Back to What's Next</a>
       <div class="eyebrow">Official project downloads</div>
       <h1>APK <span class="gradient-text">Releases</span></h1>
-      <p>Browse APK files attached to What's Next GitHub releases. Each entry includes the published build, file size, upload date, and a direct download link. This list is refreshed automatically from the project's public GitHub releases.</p>
+      <p>Browse APK files attached to What's Next GitHub releases. Each entry includes the published build, file size, upload date, and a direct download link. This list is refreshed automatically from the project's public GitHub releases every few hours.</p>
       <div class="source-line">
         <span class="source-pill">Source: official GitHub releases</span>
         <span class="source-pill">APK files only</span>
@@ -92,13 +115,16 @@
         <div id="releaseList" class="release-list">
           <div class="empty-state"><strong>Loading releases</strong>Checking the official release list for APK files.</div>
         </div>
+        <noscript>
+          <div class="empty-state"><strong>JavaScript is required</strong>The release list is loaded with JavaScript. You can browse the builds directly on <a class="text-link" href="https://github.com/tokyo720022-create/What-Next/releases">GitHub releases</a>.</div>
+        </noscript>
         <div class="safety-note">
           <strong>Install carefully.</strong> Some builds may be debug/testing packages; filenames that include <code>debug</code> are marked in the list. Check the release information before installing and download only from the official project links shown here. A build published here is not the same as a Play Store release.
         </div>
         <div class="about-links">
-          <a class="text-link" href="../whats-next.html">Project information ↗</a>
+          <a class="text-link" href="../whats-next.html">Project information →</a>
           <a class="text-link" href="https://github.com/tokyo720022-create/What-Next" target="_blank" rel="noopener noreferrer">Source repository ↗</a>
-          <a class="text-link" href="../../index.html">Tokyo Brotherhood Lab home ↗</a>
+          <a class="text-link" href="../../index.html">Tokyo Brotherhood Lab home →</a>
         </div>
       </div>
     </section>
@@ -111,160 +137,5 @@
     </div>
   </footer>
 
-  <script>
-    (function () {
-      "use strict";
-      var apiBase = "https://api.github.com/repos/tokyo720022-create/What-Next/releases?per_page=100&page=";
-      var releaseList = document.getElementById("releaseList");
-      var releaseStatus = document.getElementById("releaseStatus");
-      var officialReleasesUrl = "https://github.com/tokyo720022-create/What-Next/releases";
-
-      function element(tag, className, text) {
-        var node = document.createElement(tag);
-        if (className) node.className = className;
-        if (text !== undefined && text !== null) node.textContent = String(text);
-        return node;
-      }
-
-      function githubUrl(value) {
-        try {
-          var parsed = new URL(value);
-          if (parsed.protocol === "https:" && parsed.hostname === "github.com") return parsed.href;
-        } catch (error) {}
-        return officialReleasesUrl;
-      }
-
-      function formatDate(value) {
-        if (!value) return "Date not listed";
-        var date = new Date(value);
-        if (isNaN(date.getTime())) return "Date not listed";
-        return new Intl.DateTimeFormat("en-IN", { day: "numeric", month: "short", year: "numeric" }).format(date);
-      }
-
-      function formatSize(bytes) {
-        if (!Number.isFinite(Number(bytes)) || Number(bytes) < 0) return "Size not listed";
-        var mb = Number(bytes) / (1024 * 1024);
-        return mb < 0.01 ? String(bytes) + " bytes" : mb.toFixed(mb >= 100 ? 0 : 2) + " MB";
-      }
-
-      function emptyMessage(title, message, fallbackUrl) {
-        releaseList.replaceChildren();
-        var box = element("div", "empty-state");
-        box.appendChild(element("strong", "", title));
-        box.appendChild(element("p", "", message));
-        if (fallbackUrl) {
-          var link = element("a", "text-link", "View official GitHub releases ↗");
-          link.href = fallbackUrl;
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-          box.appendChild(link);
-        }
-        releaseList.appendChild(box);
-      }
-
-      function renderEntry(entry, index) {
-        var release = entry.release;
-        var asset = entry.asset;
-        var card = element("article", "release-card");
-        var head = element("div", "release-card-head");
-        var titleWrap = element("div", "");
-        titleWrap.appendChild(element("div", "release-tag", release.tag_name || "GitHub release"));
-        titleWrap.appendChild(element("h2", "", release.name || release.tag_name || "APK release"));
-        head.appendChild(titleWrap);
-
-        var badges = element("div", "release-badges");
-        if (index === 0) badges.appendChild(element("span", "release-badge latest", "Latest APK"));
-        if (release.prerelease) badges.appendChild(element("span", "release-badge", "Pre-release"));
-        if (/debug/i.test(asset.name || "")) badges.appendChild(element("span", "release-badge debug", "Debug / test build"));
-        head.appendChild(badges);
-        card.appendChild(head);
-
-        var meta = element("div", "release-meta");
-        meta.appendChild(element("span", "", "APK uploaded: " + formatDate(asset.updated_at || asset.created_at || release.published_at)));
-        meta.appendChild(element("span", "", "File size: " + formatSize(asset.size)));
-        meta.appendChild(element("span", "", "Downloads: " + Number(asset.download_count || 0).toLocaleString("en-IN")));
-        card.appendChild(meta);
-
-        var notes = element("p", "release-notes", release.body && release.body.trim() ? release.body.trim() : "No release notes were provided for this build.");
-        card.appendChild(notes);
-
-        var assetBox = element("div", "asset-box");
-        var assetInfo = element("div", "asset-info");
-        assetInfo.appendChild(element("div", "asset-name", asset.name || "APK file"));
-        assetInfo.appendChild(element("div", "asset-description", "Android application package · " + formatSize(asset.size)));
-        assetBox.appendChild(assetInfo);
-
-        var download = element("a", "download-button", "Download APK ↓");
-        download.href = githubUrl(asset.browser_download_url);
-        download.rel = "noopener noreferrer";
-        download.setAttribute("aria-label", "Download " + (asset.name || "APK file"));
-        assetBox.appendChild(download);
-        card.appendChild(assetBox);
-
-        var actions = element("div", "release-actions");
-        var releaseLink = element("a", "text-link", "Release page and notes ↗");
-        releaseLink.href = githubUrl(release.html_url);
-        releaseLink.target = "_blank";
-        releaseLink.rel = "noopener noreferrer";
-        actions.appendChild(releaseLink);
-        card.appendChild(actions);
-
-        if (asset.digest && /^sha256:/i.test(asset.digest)) {
-          var checksum = element("details", "checksum");
-          checksum.appendChild(element("summary", "", "Show SHA-256 checksum"));
-          checksum.appendChild(element("code", "", asset.digest.replace(/^sha256:/i, "")));
-          card.appendChild(checksum);
-        }
-        return card;
-      }
-
-      async function loadReleases() {
-        try {
-          var allReleases = [];
-          var page = 1;
-          var batch;
-          do {
-            var response = await fetch(apiBase + page, { headers: { "Accept": "application/vnd.github+json" } });
-            if (!response.ok) throw new Error("GitHub returned " + response.status);
-            batch = await response.json();
-            if (!Array.isArray(batch)) throw new Error("Unexpected release response");
-            allReleases = allReleases.concat(batch);
-            page += 1;
-          } while (batch.length === 100 && page <= 20);
-
-          var entries = [];
-          allReleases.forEach(function (release) {
-            (release.assets || []).forEach(function (asset) {
-              if (asset.name && /\.apk$/i.test(asset.name) && asset.browser_download_url) {
-                entries.push({ release: release, asset: asset });
-              }
-            });
-          });
-          entries.sort(function (a, b) {
-            var aDate = Date.parse(a.asset.updated_at || a.asset.created_at || a.release.published_at || "") || 0;
-            var bDate = Date.parse(b.asset.updated_at || b.asset.created_at || b.release.published_at || "") || 0;
-            return bDate - aDate;
-          });
-
-          releaseList.replaceChildren();
-          if (!entries.length) {
-            releaseStatus.textContent = "No APK files found in the published release list.";
-            emptyMessage("No APKs published yet", "When an Android APK is attached to a published What's Next release, it will appear here automatically.", officialReleasesUrl);
-            return;
-          }
-
-          releaseStatus.textContent = entries.length + " APK file" + (entries.length === 1 ? "" : "s") + " found across the published GitHub releases.";
-          entries.forEach(function (entry, index) {
-            releaseList.appendChild(renderEntry(entry, index));
-          });
-        } catch (error) {
-          releaseStatus.textContent = "The automatic release list could not be loaded right now.";
-          emptyMessage("Couldn't load releases", "You can still browse the published builds directly on GitHub. The release list here will retry when the page is refreshed.", officialReleasesUrl);
-        }
-      }
-
-      loadReleases();
-    }());
-  </script>
 </body>
 </html>

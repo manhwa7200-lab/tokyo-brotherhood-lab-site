@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tokyo720022-create.github.io/tokyo-brotherhood-lab-site/sitemap.xml

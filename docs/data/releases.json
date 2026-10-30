@@ -1,7 +1,27 @@
 {
-  "updated_at": "2026-10-29T13:23:24Z",
+  "updated_at": "2026-10-30T01:25:05Z",
   "source": "https://github.com/tokyo720022-create/What-Next/releases",
   "releases": [
+    {
+      "tag_name": "v2.1.1-b54",
+      "name": "What Next? v2.1.1-b54",
+      "body": "**Full Changelog**: https://github.com/tokyo720022-create/What-Next/compare/v2.1.1-b47...v2.1.1-b54",
+      "prerelease": false,
+      "draft": false,
+      "html_url": "https://github.com/tokyo720022-create/What-Next/releases/tag/v2.1.1-b54",
+      "published_at": "2026-10-30T01:24:35Z",
+      "assets": [
+        {
+          "name": "WhatNext-v2.1.1-b54.apk",
+          "size": 14337152,
+          "download_count": 0,
+          "browser_download_url": "https://github.com/tokyo720022-create/What-Next/releases/download/v2.1.1-b54/WhatNext-v2.1.1-b54.apk",
+          "created_at": "2026-10-30T01:24:32Z",
+          "updated_at": "2026-10-30T01:24:34Z",
+          "digest": "sha256:c1f687390f24044898b012ee8b722729c1a333bbcf8da4d114b3730c668d3dcb"
+        }
+      ]
+    },
     {
       "tag_name": "v2.1.1-b47",
       "name": "What Next? v2.1.1-b47",
